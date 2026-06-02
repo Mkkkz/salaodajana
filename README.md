@@ -44,3 +44,12 @@ Depois do deploy, acesse:
 ```txt
 /admin
 ```
+
+
+## Atualização incluída
+
+- Favicon com `public/logo.png`.
+- Logo no topo do site.
+- Galeria Antes e Depois.
+- Foto antes/depois de luzes.
+- Avaliação da Juliana com 5 estrelas e 10/10.

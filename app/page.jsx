@@ -9,6 +9,24 @@ const services = [
   { name: 'Combo: Corte + Hidratação + Escova', price: 'R$ 95' }
 ];
 
+const beforeAfter = [
+  {
+    title: 'Luzes realizadas no Salão da Jana',
+    before: '/galeria/antes-luzes.png',
+    after: '/galeria/depois-luzes.png',
+    description: 'Transformação com luzes, acabamento e cuidado capilar.'
+  }
+];
+
+const reviews = [
+  {
+    name: 'Juliana',
+    rating: '★★★★★',
+    score: '10/10',
+    text: 'Atendimento maravilhoso, resultado perfeito e muito cuidado em cada detalhe.'
+  }
+];
+
 const whatsapp = 'https://wa.me/5531998459954?text=Olá,%20vim%20pelo%20site%20do%20Salão%20da%20Jana%20e%20quero%20agendar%20um%20horário.';
 const maps = 'https://www.google.com/maps/search/?api=1&query=Rua%20Expedito%20Antônio%20da%20Costa%20264%20Campos%20Altos%20MG';
 
@@ -16,9 +34,14 @@ export default function Home() {
   return (
     <main className="site">
       <nav className="topbar">
-        <div className="brand">Salão da <span>Jana</span></div>
+        <div className="brand brandWithLogo">
+          <img src="/logo.png" alt="Logo Salão da Jana" />
+          <span>Salão da <strong>Jana</strong></span>
+        </div>
         <div className="navlinks">
           <a href="#servicos">Serviços</a>
+          <a href="#galeria">Antes e Depois</a>
+          <a href="#avaliacoes">Avaliações</a>
           <a href="#contato">Contato</a>
           <a href="/admin">Admin</a>
         </div>
@@ -67,6 +90,57 @@ export default function Home() {
             <div className="serviceCard" key={service.name}>
               <h3>{service.name}</h3>
               <p>{service.price}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+      <section id="galeria" className="section">
+        <div className="sectionHeader">
+          <span>✨ Antes e Depois</span>
+          <h2>Transformações realizadas</h2>
+          <p>Veja alguns resultados feitos com carinho no Salão da Jana.</p>
+        </div>
+
+        <div className="beforeAfterGrid">
+          {beforeAfter.map((item) => (
+            <div className="beforeAfterCard" key={item.title}>
+              <div className="beforeAfterTitle">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+
+              <div className="photosCompare">
+                <div>
+                  <span>Antes</span>
+                  <img src={item.before} alt="Antes do procedimento" />
+                </div>
+
+                <div>
+                  <span>Depois</span>
+                  <img src={item.after} alt="Depois do procedimento" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="avaliacoes" className="section">
+        <div className="sectionHeader">
+          <span>⭐ Avaliações</span>
+          <h2>O que as clientes dizem</h2>
+          <p>Depoimentos de quem já passou pelo Salão da Jana.</p>
+        </div>
+
+        <div className="reviewsGrid">
+          {reviews.map((review) => (
+            <div className="reviewCard" key={review.name}>
+              <div className="reviewStars">{review.rating}</div>
+              <h3>{review.name}</h3>
+              <strong>{review.score}</strong>
+              <p>“{review.text}”</p>
             </div>
           ))}
         </div>
